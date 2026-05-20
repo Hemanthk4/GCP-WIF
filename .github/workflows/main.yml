@@ -15,11 +15,20 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Authenticate to GCP using WIF
-      uses: google-github-actions/auth@v2
-      with:
-        workload_identity_provider: "projects/582879959251/locations/global/workloadIdentityPools/github-actions/github-actions-provider/Hemanthk4/GCP-WIF"
-        service_account: "sa-for-wif@my-project-1905-496807.iam.gserviceaccount.com"
+    #- name: Authenticate to GCP using WIF
+      #uses: google-github-actions/auth@v2
+     # with:
+      #  workload_identity_provider: "projects/582879959251/locations/global/workloadIdentityPools/github-actions/github-actions-provider/Hemanthk4/GCP-WIF"
+       # service_account: 
+
+    - id: 'auth'
+          name: Authenticate to Google Cloud
+          uses: google-github-actions/auth@v2
+          with:
+            # Note the exact format: projects/PROJECT_NUMBER/locations/global/workloadIdentityPools/POOL_ID/providers/PROVIDER_ID
+            workload_identity_provider: "projects/582879959251/locations/global/workloadIdentityPools/github-actions/providers/github-actions-provider"
+            service_account: "sa-for-wif@my-project-1905-496807.iam.gserviceaccount.com"
+
 
     - name: Setup gcloud
       uses: google-github-actions/setup-gcloud@v2
