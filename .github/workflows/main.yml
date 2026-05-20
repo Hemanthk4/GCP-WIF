@@ -18,7 +18,7 @@ jobs:
     - name: Authenticate to GCP using WIF
       uses: google-github-actions/auth@v2
       with:
-        workload_identity_provider: "/projects/582879959251/locations/global/workloadIdentityPools/github-actions/subject/Hemanthk4/GCP-WIF"
+        workload_identity_provider: "projects/582879959251/locations/global/workloadIdentityPools/github-actions/subject/Hemanthk4/GCP-WIF"
         service_account: "sa-for-wif@my-project-1905-496807.iam.gserviceaccount.com"
 
     - name: Setup gcloud
